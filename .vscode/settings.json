@@ -10,5 +10,6 @@
         ".",
         "-p",
         "*test.py"
-    ]
+    ],
+    "explorer.compactFolders": false
 }
