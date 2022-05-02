@@ -1,14 +1,27 @@
-<!DOCTYPE html>
-<html>
-
-<head lang="pt-BR">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <title>Recipes</title>
-</head>
+{%include 'recipes/partials/head.html'%}
 
 <body>
-    <h1>HOME RECIPES {{name}}</h1>
+    {%include 'recipes/partials/headers.html'%}
+    <div class="container">
+        <form action="" class="search-form">
+            <input type="search" class="search-input" name="search">
+            <button type="submit" class="search-button">
+                <i class="fa fa-search"></i>
+            </button>
+        </form>
+
+    </div>
+    <main class="main-content-container">
+        <div class="main-content main-content-list container">
+            {%include 'recipes/partials/recipe.html'%}
+            {%include 'recipes/partials/recipe.html'%}
+            {%include 'recipes/partials/recipe.html'%}
+            {%include 'recipes/partials/recipe.html'%}
+            {%include 'recipes/partials/recipe.html'%}
+            {%include 'recipes/partials/recipe.html'%}
+        </div>
+    </main>
+    {%include 'recipes/partials/footer.html'%}
 </body>
 
 </html>
