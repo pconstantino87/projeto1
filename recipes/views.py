@@ -10,6 +10,10 @@ def home(request):
     return render(request, 'recipes/home.html', {'name': 'Pedro Tiago'})
 
 
+def recipe(request, id):
+    return render(request, 'recipes/home.html')
+
+
 def sobre(request):
     return HttpResponse('UMA LINDA sobre')
 
