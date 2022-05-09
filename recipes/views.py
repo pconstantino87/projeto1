@@ -10,8 +10,8 @@ def home(request):
     return render(request, 'recipes/home.html', {'name': 'Pedro Tiago'})
 
 
-def recipe(request, id):
-    return render(request, 'recipes/home.html')
+def recipe(request, id=False):
+    return render(request, 'recipes/page/recipe-view.html')
 
 
 def sobre(request):

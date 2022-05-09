@@ -1,27 +1,12 @@
-{%include 'recipes/partials/head.html'%}
+{%extends 'global/home.html'%}
 
-<body>
-    {%include 'recipes/partials/headers.html'%}
-    <div class="container">
-        <form action="" class="search-form">
-            <input type="search" class="search-input" name="search">
-            <button type="submit" class="search-button">
-                <i class="fa fa-search"></i>
-            </button>
-        </form>
-
-    </div>
-    <main class="main-content-container">
-        <div class="main-content main-content-list container">
-            {%include 'recipes/partials/recipe.html'%}
-            {%include 'recipes/partials/recipe.html'%}
-            {%include 'recipes/partials/recipe.html'%}
-            {%include 'recipes/partials/recipe.html'%}
-            {%include 'recipes/partials/recipe.html'%}
-            {%include 'recipes/partials/recipe.html'%}
-        </div>
-    </main>
-    {%include 'recipes/partials/footer.html'%}
-</body>
-
-</html>
+{% block content %}
+<div class="main-content main-content-list container">
+    {%include 'recipes/partials/recipe.html'%}
+    {%include 'recipes/partials/recipe.html'%}
+    {%include 'recipes/partials/recipe.html'%}
+    {%include 'recipes/partials/recipe.html'%}
+    {%include 'recipes/partials/recipe.html'%}
+    {%include 'recipes/partials/recipe.html'%}
+</div>
+{% endblock content %}
