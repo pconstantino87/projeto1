@@ -1,23 +1,45 @@
 <div class="recipe recipe-list-item">
     <div class="recipe-image">
-        <img src="{{recipe.cover.url}}" alt="temp image">
+        {% if is_detail_page is not True  %}
+            <a href="{% url 'recipes:recipes-recipe' recipe.id  %}">
+        {% endif %}
+        {% if recipe.cover %}
+            <img src="{{recipe.cover.url}}" alt="temp image">
+        {% endif %}
+        {% if is_detail_page is not True  %}
+            </a>
+        {% endif %}
         <div class="recipe-title-container">
-            <h2 class="recipe-title">{{ recipe.title }}</h2>
+
+            <h2 class="recipe-title">
+                {% if is_detail_page is not True  %}
+                    <a href=" {% url 'recipes:recipes-recipe' recipe.id%} ">
+                {% endif %}
+                     {{ recipe.title|title }}
+                {% if is_detail_page is not True  %}
+                    </a>
+                {% endif %}
+            </h2>
         </div>
     </div>
     <div class="recipe-autor">
         <span class="recipe-autor-item">
             <i class="fa fa-user"></i>
+            {% if recipe.author.first_name%}
             {{ recipe.author.first_name }} {{ recipe.author.last_name }}
+            {% else %}
+            {{ recipe.author.user_name }}
+            {% endif %}
+            
         </span>
         <span class="recipe-autor-item">
             <i class="fa fa-calendar"></i>
             {{recipe.created_at|date:"d/m/Y h:m:s"}} às  {{recipe.created_at|date:"h:m"}}
         </span>
         <span class="recipe-autor-item">
-            <a href="">
+            <a href="{% url 'recipes:category' recipe.category.id %}">
                 <i class="fa fa-layer-group"></i>
-                <span>Categoria {{recipe.category.name}}</span>
+                <span>{{recipe.category.name}}</span>
             </a>
         </span>
     </div>
@@ -54,7 +76,11 @@
     {% endif %}
     {% if is_detail_page is True %}
         <div class="recipe-preparation">
-            {{recipe.preparatio_steps|linebreaksbr}}
+            {% if recipe.preparation_steps_is_html %}
+                {{recipe.preparation_steps|safe}}
+            {% else %}
+                {{recipe.preparation_steps}}
+            {% endif %}
         </div>
     {% endif %}
 </div>
